@@ -13,7 +13,7 @@ body {
     background-color: #94AEDE;
 }
 
-.container {
+.container-user {
     height: 171px;
     display: flex;
     background-color: #4B164C;
@@ -47,10 +47,84 @@ body {
     
 }
 
-.container h2 {
+.container-user h2 {
     margin: auto 0;
     margin-left: auto;
     margin-right: 40px;
     font-size: 24px;
     font-weight: 600;
+}
+
+.where-fly {
+    text-align: center;
+    margin-top: 33px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.container-input {
+    width: 620px;
+    height: 520px;
+    background-color: #ECE7F8;
+    margin: 25px auto;
+    border-radius: 15px;
+}
+
+.container-input-wrapper {
+    padding-top: 41px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.container-input-wrapper label  {
+    padding-left: 60px;
+    padding-bottom: 16px;
+    text-align: left;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #4B164C;
+}
+
+.container-input-wrapper input {
+    width: 500px;
+    height: 60px;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.btn-cari-jadwal {
+    width: 287px;
+    height: 74px;
+    background-color: #4B164C;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: none;
+    border-radius: 10px;
+}
+
+.footer {
+    height: 114px;
+    margin-top: 104px;
+    background-color: #4B164C;
+    color: white;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+    font-family: 'Poetsen One', sans-serif;
 }
