@@ -2,11 +2,47 @@ const username = document.getElementById('username');
 const password = document.getElementById('password');
 const loginBtn = document.getElementById('login-btn');
 
-function login(params) {
+function login() {
+
   const usernameValue = username.value;
   const passwordValue = password.value;
-  localStorage.setItem('username', usernameValue);
-  localStorage.setItem('password', passwordValue);
+
+  let userObj = {
+    username: usernameValue,
+    password: passwordValue
+  }
+
+  const usernameError = document.getElementById('username-error')
+  const passwordError = document.getElementById('password-error')
+
+  usernameError.style.display = 'none'
+  passwordError.style.display = 'none'
+
+  isValid = true
+
+  if(usernameValue === ''){
+
+    usernameError.style.display = 'block'
+    isValid = false
+    
+  } else if(passwordValue === ''){
+    
+    passwordError.style.display = 'block'
+    isValid = false
+    
+  } else if(usernameValue === '' && passwordValue === ''){
+    
+    usernameError.style.display = 'block'
+    passwordError.style.display = 'block'
+    isValid = false
+
+  }
+
+  if(isValid){
+    window.location.href = '../index.html'
+  }
+
+  localStorage.setItem('user', JSON.stringify(userObj));
 }
 
 loginBtn.addEventListener('click', login);
