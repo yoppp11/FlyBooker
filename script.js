@@ -13,7 +13,7 @@ function searchTicket() {
     const tujuan = tujuanUser.value
     const tanggal = tanggalBerangkat.value
 
-    if(asal && tujuan && tanggal) window.location.href = `./list-ticket/index.html?asal=${asal}&tujuan=${tujuan}&tanggal=${tanggal}`
+    if(asal && tujuan && tanggal) window.location.href = `./ticket-search/index.html?asal=${asal}&tujuan=${tujuan}&tanggal=${tanggal}`
     
 
 }

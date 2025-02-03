@@ -45,4 +45,4 @@ function login() {
   localStorage.setItem('user', JSON.stringify(userObj));
 }
 
-loginBtn.addEventListener('submit', login);
+loginBtn.addEventListener('click', login);
