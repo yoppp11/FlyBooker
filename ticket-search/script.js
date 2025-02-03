@@ -1,12 +1,23 @@
 // const flightSchedules = require('../data-tiket.js')
 import { flightSchedules } from '../data-tiket.js'
 
+document.addEventListener('DOMContentLoaded', ()=>{
+    
+let namaUser = document.getElementById('user-name')
+const userData = JSON.parse(localStorage.getItem('user'))
+const userName = userData.username
+
+if(userData.username) namaUser.innerHTML = userName
+
+})
+
 const urlParam = new URLSearchParams(window.location.search)
 
 const asalParam = urlParam.get('asal')
 const tujuanParam = urlParam.get('tujuan')
 const tanggalParam = urlParam.get('tanggal')
 const wrapper = document.querySelector('.wrapper')
+let tiketId = ''
 
 const splitTanggal = tanggalParam.split('-')
 
@@ -51,21 +62,46 @@ function createSearchCard(flight){
 
   wrapper.insertAdjacentHTML('beforeend', searchCard)
 }
+let hasResult = false
 
 flightSchedules.forEach(flight =>  {
-    console.log(flight)
-    const kotaAsal = flight.origin
-    const kotaTujuan = flight.destination
+
+    const kotaAsal = flight.originCity
+    const kotaTujuan = flight.destinationCity
     const tanggalBerangkat = flight.date
 
     if(asalParam === kotaAsal && tujuanParam === kotaTujuan && tanggal === tanggalBerangkat) {
         
         createSearchCard(flight)
+        hasResult = true
         
-    } else {
-
-    }
+    } 
+    
 })
+
+if(!hasResult) {
+    wrapper.innerHTML = `
+<div class="no-results">
+  <h2>Penerbangan tidak ditemukan</h2>
+  <p>Coba cari dengan kriteria yang berbeda</p>
+</div>
+`;
+}
+
+const listTicketColumn = document.getElementsByClassName('search-card')
+
+for(let i = 0; i < listTicketColumn.length; i++){
+    listTicketColumn[i].addEventListener('click', function(){
+        const flightNumberId = listTicketColumn[i].querySelector('#flight-number').textContent
+        console.log(flightNumberId)
+        window.location.href = `../ticket-confirm/index.html?flightNumber=${flightNumberId}`
+    })
+}
+
+console.log(listTicketColumn);
+
+
+
 
 
 

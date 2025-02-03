@@ -1,0 +1,1 @@
+console.log(Math.floor(Math.random() * 12345678912341234))
