@@ -1,6 +1,14 @@
+function generateId() {
+    const timestamp = Date.now().toString(36).toUpperCase();
+    const randomPart = Math.random().toString(36).substring(2, 3).toUpperCase();
+    return timestamp + randomPart;
+  }
+  
+
 export const flightSchedules = [
     
         {
+        IdTicket: generateId(),
         airline: "Garuda Indonesia",
         flightNumber: "GA407",
         origin: "SUB",
@@ -20,6 +28,7 @@ export const flightSchedules = [
         meal: true
         },
         {
+        IdTicket: generateId(),
         airline: "Lion Air",
         flightNumber: "JT642",
         origin: "SUB",
@@ -41,6 +50,7 @@ export const flightSchedules = [
     
         
         {
+        IdTicket: generateId(),
         airline: "Citilink",
         flightNumber: "QG889",
         origin: "CGK",
@@ -60,6 +70,7 @@ export const flightSchedules = [
         meal: true
         },
         {
+            IdTicket: generateId(),
         airline: "Batik Air",
         flightNumber: "ID6583",
         origin: "CGK",
@@ -81,6 +92,7 @@ export const flightSchedules = [
     
         
         {
+            IdTicket: generateId(),
         airline: "AirAsia",
         flightNumber: "QZ755",
         origin: "CGK",
@@ -102,6 +114,7 @@ export const flightSchedules = [
     
         
         {
+            IdTicket: generateId(),
         airline: "Super Air Jet",
         flightNumber: "IU665",
         origin: "DPS",
@@ -123,6 +136,7 @@ export const flightSchedules = [
     
         
         {
+            IdTicket: generateId(),
         airline: "Garuda Indonesia",
         flightNumber: "GA182",
         origin: "CGK",
@@ -143,6 +157,7 @@ export const flightSchedules = [
         },
     
         {
+            IdTicket: generateId(),
         airline: "Lion Air",
         flightNumber: "JT782",
         origin: "SUB",
@@ -163,6 +178,7 @@ export const flightSchedules = [
         },
     
         {
+            IdTicket: generateId(),
         airline: "Citilink",
         flightNumber: "QG902",
         origin: "JOG",
@@ -182,6 +198,7 @@ export const flightSchedules = [
         meal: true
         },
         {
+            IdTicket: generateId(),
             airline: "Sriwijaya Air",
             flightNumber: "SJ234",
             origin: "CGK",
@@ -201,6 +218,7 @@ export const flightSchedules = [
             meal: true
           },
           {
+            IdTicket: generateId(),
             airline: "Lion Air",
             flightNumber: "JT881",
             origin: "DPS",
@@ -220,6 +238,7 @@ export const flightSchedules = [
             meal: false
           },
           {
+            IdTicket: generateId(),
             airline: "Batik Air",
             flightNumber: "ID774",
             origin: "SUB",
@@ -239,6 +258,7 @@ export const flightSchedules = [
             meal: true
           },
           {
+            IdTicket: generateId(),
             airline: "Citilink",
             flightNumber: "QG455",
             origin: "UPG",
@@ -258,6 +278,7 @@ export const flightSchedules = [
             meal: true
           },
           {
+            IdTicket: generateId(),
             airline: "Garuda Indonesia",
             flightNumber: "GA889",
             origin: "JOG",
@@ -277,6 +298,7 @@ export const flightSchedules = [
             meal: true
           },
           {
+            IdTicket: generateId(),
             airline: "AirAsia",
             flightNumber: "QZ332",
             origin: "KNO",
@@ -296,6 +318,7 @@ export const flightSchedules = [
             meal: false
           },
           {
+            IdTicket: generateId(),
             airline: "Super Air Jet",
             flightNumber: "IU997",
             origin: "DPS",
@@ -315,6 +338,7 @@ export const flightSchedules = [
             meal: true
           },
           {
+            IdTicket: generateId(),
             airline: "Nam Air",
             flightNumber: "IN556",
             origin: "PKU",
@@ -334,6 +358,7 @@ export const flightSchedules = [
             meal: false
           },
           {
+            IdTicket: generateId(),
             airline: "Wings Air",
             flightNumber: "IW223",
             origin: "BTJ",
@@ -353,6 +378,7 @@ export const flightSchedules = [
             meal: false
           },
           {
+            IdTicket: generateId(),
             airline: "Batik Air",
             flightNumber: "ID432",
             origin: "BDO",

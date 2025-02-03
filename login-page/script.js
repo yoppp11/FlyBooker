@@ -8,6 +8,7 @@ function login() {
   const passwordValue = password.value;
 
   let userObj = {
+    uid: Math.floor(Math.random() * 12345678912341234),
     username: usernameValue,
     password: passwordValue
   }
