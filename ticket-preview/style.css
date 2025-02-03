@@ -17,7 +17,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
 }
 
 .top {
@@ -54,29 +54,46 @@ header {
 }
 
 div#ticket-preview {
+  max-width: 500px;
   background-color: #ffff;
-  padding: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .flight-info-l {
-    #airline-name {
-      font-size: 16px;
+  padding: 1.8rem;
+  .section {
+    display: flex;
+    margin-bottom: 1.2rem;
+    justify-content: space-between;
+    align-items: center;
+    .flight-info-l {
+      #airline-name {
+        font-size: 16px;
+      }
+      #airline-number {
+        font-size: 14px;
+      }
+      #airline-aircraft {
+        font-size: 12px;
+      }
     }
-    #airline-number {
-      font-size: 14px;
+    .flight-info-r {
+      text-align: right;
+      h1 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 12px;
+      }
     }
-    #airline-aircraft {
-      font-size: 12px;
+    .passenger-info-r {
+      text-align: right;
     }
   }
-  .flight-info-r {
-    text-align: right;
-    h1 {
-      font-size: 18px;
-    }
-    p {
-      font-size: 12px;
+  .barcode {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 200px;
     }
   }
 }
