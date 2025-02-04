@@ -99,7 +99,7 @@ btnConfirm.addEventListener('click', function(){
 
     }
     // localStorage.setItem('myTicket', )
-    window.location.href = `../ticket-preview/index.html?flightNumber=${flightNumberId}`
+    window.location.href = `../my-tickets/index.html?flightNumber=${flightNumberId}`
 })
 
 if (!hasResult) {

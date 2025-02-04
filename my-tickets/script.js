@@ -68,6 +68,15 @@ if(!hasResult) {
 const listCard = document.getElementsByClassName('card')
 
 for(let i = 0; i < listCard.length; i++){
+    const btnDelete = listCard[i].querySelector('#delete-button')
+    btnDelete.addEventListener('click', function(){
+        event.stopPropagation()
+
+        console.log('ini diklikkk')
+        myListTicket.splice([i], 1)
+        localStorage.setItem('myTicket', JSON.stringify(myListTicket))
+        location.reload()
+    })
     listCard[i].addEventListener('click', function(){
         const flightNumberId = listCard[i].querySelector('#flight-number').textContent
         console.log(flightNumberId)
