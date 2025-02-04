@@ -1,23 +1,42 @@
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+const loginBtn = document.getElementById('login-btn');
 
-const userName = document.getElementById('user-name')
-const userData = JSON.parse(localStorage.getItem('user'))
-const btnSearch = document.getElementById('btn-cari-jadwal')
-const asalUser = document.getElementById('asal')
-const tujuanUser = document.getElementById('tujuan')
-const tanggalBerangkat = document.getElementById('tanggal')
+function login() {
+  const usernameValue = username.value;
+  const passwordValue = password.value;
 
-if(userData.username) userName.innerHTML = userData.username
+  let userObj = {
+    uid: Math.floor(Math.random() * 12345678912341234),
+    username: usernameValue,
+    password: passwordValue,
+  };
 
-function searchTicket() {
-    const asal = asalUser.value
-    const tujuan = tujuanUser.value
-    const tanggal = tanggalBerangkat.value
+  const usernameError = document.getElementById('username-error');
+  const passwordError = document.getElementById('password-error');
 
-    if(asal && tujuan && tanggal) window.location.href = `./ticket-search/index.html?asal=${asal}&tujuan=${tujuan}&tanggal=${tanggal}`
-    
+  usernameError.style.display = 'none';
+  passwordError.style.display = 'none';
 
+  isValid = true;
+
+  if (usernameValue === '') {
+    usernameError.style.display = 'block';
+    isValid = false;
+  } else if (passwordValue === '') {
+    passwordError.style.display = 'block';
+    isValid = false;
+  } else if (usernameValue === '' && passwordValue === '') {
+    usernameError.style.display = 'block';
+    passwordError.style.display = 'block';
+    isValid = false;
+  }
+
+  if (isValid) {
+    window.location.href = './flight-search/index.html';
+  }
+
+  localStorage.setItem('user', JSON.stringify(userObj));
 }
 
-btnSearch.addEventListener('click', searchTicket);
-
-
+loginBtn.addEventListener('click', login);
