@@ -81,8 +81,24 @@ flightSchedules.forEach(flight  => {
 })
 
 const btnConfirm = document.querySelector('#confirm-btn')
+const myTicketData = JSON.parse(localStorage.getItem('myTicket'))
 
 btnConfirm.addEventListener('click', function(){
+    let listTicket = []
+    let objTicketData = {
+        flightNumber: ''
+    }
+    if(!myTicketData){
+        objTicketData.flightNumber = flightNumberId
+        listTicket.push(objTicketData)
+        localStorage.setItem('myTicket', JSON.stringify(listTicket))
+    } else {
+        objTicketData.flightNumber = flightNumberId
+        myTicketData.push(objTicketData)
+        localStorage.setItem('myTicket', JSON.stringify(myTicketData))
+
+    }
+    // localStorage.setItem('myTicket', )
     window.location.href = `../ticket-preview/index.html?flightNumber=${flightNumberId}`
 })
 
