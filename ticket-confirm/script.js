@@ -80,6 +80,12 @@ flightSchedules.forEach(flight  => {
     }
 })
 
+const btnConfirm = document.querySelector('#confirm-btn')
+
+btnConfirm.addEventListener('click', function(){
+    window.location.href = `../ticket-preview/index.html?flightNumber=${flightNumberId}`
+})
+
 if (!hasResult) {
     ticketConfirm.innerHTML = `
 <div class="no-results">
@@ -88,6 +94,8 @@ if (!hasResult) {
 </div>
 `;
 }
+
+
 
 
 
