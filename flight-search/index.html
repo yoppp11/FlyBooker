@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Flybooker | Flight Search</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="./style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../reset.css"
+    />
+  </head>
+  <body>
+    <div class="container-user container top">
+      <div class="user-info">
+        <img
+          src="https://th.bing.com/th/id/OIP.FZsskT3BF6cUQ93s_I1BtQAAAA?rs=1&pid=ImgDetMain"
+          alt="avatar-user"
+          id="avatar-user"
+        />
+        <div class="user-wrapper">
+          <h2 class="user-name">Hello, <span id="user-name"></span></h2>
+          <h3 class="user-member">Basic Member</h3>
+        </div>
+      </div>
+      <a href="../my-tickets/index.html">My Ticket</a>
+    </div>
+
+    <h3 class="where-fly">Mau terbang kemana hari ini</h3>
+
+    <div class="container-input center">
+      <div class="container-input-wrapper">
+        <label for="asal">Asal</label>
+        <input
+          type="text"
+          name="asal"
+          id="asal"
+        />
+        <label for="tujuan">Tujuan</label>
+        <input
+          type="text"
+          name="tujuan"
+          id="tujuan"
+        />
+        <label for="tanggal">Tanggal</label>
+        <input
+          type="date"
+          name="tanggal"
+          id="tanggal"
+        />
+        <button
+          class="btn-cari-jadwal"
+          id="btn-cari-jadwal"
+        >
+          Cari Jadwal
+        </button>
+      </div>
+    </div>
+
+    <div class="footer container bottom">
+      <p>FlyBooker</p>
+    </div>
+
+    <script
+      src="script.js"
+      type="module"
+    ></script>
+  </body>
+</html>

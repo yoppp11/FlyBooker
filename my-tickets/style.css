@@ -46,9 +46,9 @@ header {
       display: flex;
       gap: 1rem;
       align-items: center;
-      img#user-avatar {
-        width: 50px;
-        height: 50px;
+      img {
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
       }
       .user-information {
@@ -69,61 +69,77 @@ header {
   }
 }
 
-div.information {
-  width: 500px;
-  display: flex;
-  justify-content: space-between;
-  padding-top: 1rem;
-}
-
-div#flight-search {
+div#my-tickets {
   background-color: #f8e7f6;
-  min-height: 400px;
   width: 500px;
-  position: relative;
-  .wrapper {
+  min-height: 360px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  .card {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    border-radius: 0.5rem;
     padding: 1rem;
-    gap: 1rem;
-    .search-card {
-      box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
-      width: 450px;
-      background-color: #fff;
-      border-radius: 1rem;
-      padding: 1.2rem;
+    background-color: #ffff;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+    .ticket-detail-l {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      .flight-information {
-        text-align: left;
-        #flight-airline {
+      flex-direction: column;
+      gap: 1rem;
+      .flight-info {
+        min-height: 50px;
+        h2 {
+          font-size: 1rem;
           font-weight: 700;
         }
-        #flight-number {
+        p {
+          font-size: 1rem;
           font-weight: 600;
         }
-        #flight-aircraft,
-        #flight-date {
-          font-size: 0.6rem;
+      }
+    }
+    .ticket-detail-r {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .ticket-details {
+          min-height: 50px;
+          text-align: right;
+          #ticket-date {
+            font-size: 1rem;
+          }
+          #ticket-id {
+            font-size: 0.9rem;
+            font-weight: 700;
+          }
+        }
+        .arrival {
+          text-align: right;
         }
       }
-      .arrow img {
-        width: 30px;
-      }
-      .origin,
-      .destination {
-        text-align: center;
-      }
-      #origin-airport-code,
-      #destination-airport-code {
-        font-size: 1rem;
-      }
-      #origin-airport,
-      #destination-airport {
-        font-size: 0.7rem;
+      .interact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        img {
+          width: 22px;
+          transition: 0.2s all ease-in-out;
+        }
+        img:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
       }
     }
   }
