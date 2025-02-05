@@ -31,38 +31,40 @@
     />
   </head>
   <body>
-    <header class="container top">
-      <div class="user-bar">
-        <div class="user-wrapper">
-          <img
-            src="https://th.bing.com/th/id/OIP.FZsskT3BF6cUQ93s_I1BtQAAAA?rs=1&pid=ImgDetMain"
-            alt="avatar-user"
-            id="user-avatar"
-          />
-          <div class="user-information">
-            <h2 class="user-name">Hello, <span id="user-name"></span></h2>
-            <p class="user-member">Basic Member</p>
+    <div class="background">
+      <header class="container top">
+        <div class="user-bar">
+          <div class="user-wrapper">
+            <img
+              src="https://th.bing.com/th/id/OIP.FZsskT3BF6cUQ93s_I1BtQAAAA?rs=1&pid=ImgDetMain"
+              alt="avatar-user"
+              id="user-avatar"
+            />
+            <div class="user-information">
+              <h2 class="user-name">Hello, <span id="user-name"></span></h2>
+              <p class="user-member">Basic Member</p>
+            </div>
           </div>
+          <a
+            href="../my-tickets/index.html"
+            id="ticket-list"
+            >My Ticket</a
+          >
         </div>
-        <a
-          href="../my-tickets/index.html"
-          id="ticket-list"
-          >My Ticket</a
-        >
+      </header>
+      <div class="information container">
+        <p><span id="origin-city">Surabaya</span> - <span id="destination-city">Denpasar</span></p>
+        <p>18 February 2025</p>
       </div>
-    </header>
-    <div class="information container">
-      <p><span id="origin-city">Surabaya</span> - <span id="destination-city">Denpasar</span></p>
-      <p>18 February 2025</p>
-    </div>
-    <div
-      class="container center"
-      id="flight-search"
-    >
-      <div class="wrapper"></div>
-    </div>
-    <footer class="container bottom">FlyBooker</footer>
+      <div
+        class="container center"
+        id="flight-search"
+      >
+        <div class="wrapper"></div>
+      </div>
 
+      <footer class="container bottom">FlyBooker</footer>
+    </div>
     <script
       src="script.js"
       type="module"
