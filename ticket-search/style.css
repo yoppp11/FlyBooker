@@ -126,6 +126,23 @@ div#flight-search {
         font-size: 0.7rem;
       }
     }
+    .no-results {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      h2 {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      p {
+        font-size: 0.8rem;
+        font-weight: 400;
+        font-style: italic;
+      }
+    }
   }
 }
 
