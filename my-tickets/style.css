@@ -33,6 +33,14 @@ body {
   margin: 1.2rem;
 }
 
+.background {
+  background: #b0d0ee;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 header {
   height: 120px;
   color: #ffff;
