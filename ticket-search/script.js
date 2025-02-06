@@ -1,40 +1,44 @@
 // const flightSchedules = require('../data-tiket.js')
-import { flightSchedules } from '../data-tiket.js'
+import { flightSchedules } from '../data-tiket.js';
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    
-let namaUser = document.getElementById('user-name')
-const userData = JSON.parse(localStorage.getItem('user'))
-const userName = userData.username
+document.addEventListener('DOMContentLoaded', () => {
+  let namaUser = document.getElementById('user-name');
+  const userData = JSON.parse(localStorage.getItem('user'));
+  const userName = userData.username;
 
-if(userData.username) namaUser.innerHTML = userName
+  if (userData.username) namaUser.innerHTML = userName;
+});
 
-})
+const urlParam = new URLSearchParams(window.location.search);
 
-const urlParam = new URLSearchParams(window.location.search)
+const asalParam = urlParam.get('asal');
+const tujuanParam = urlParam.get('tujuan');
+const tanggalParam = urlParam.get('tanggal');
+const wrapper = document.querySelector('.wrapper');
+const originCity = document.getElementById('origin-city');
+const destinationCity = document.getElementById('destination-city');
+const flightDate = document.getElementById('date-flight');
+let tiketId = '';
 
-const asalParam = urlParam.get('asal')
-const tujuanParam = urlParam.get('tujuan')
-const tanggalParam = urlParam.get('tanggal')
-const wrapper = document.querySelector('.wrapper')
-let tiketId = ''
+originCity.textContent = asalParam;
+destinationCity.textContent = tujuanParam;
+flightDate.textContent = tanggalParam;
 
-const splitTanggal = tanggalParam.split('-')
+const splitTanggal = tanggalParam.split('-');
 
-let tanggal = ''
+let tanggal = '';
 
-for(let i = splitTanggal.length - 1; i >= 0; i--){
-    if(i === 0){
-        tanggal += `${splitTanggal[i]}`
-    } else {
-        tanggal += `${splitTanggal[i]}/`
-        
-    }
+for (let i = splitTanggal.length - 1; i >= 0; i--) {
+  if (i === 0) {
+    tanggal += `${splitTanggal[i]}`;
+  } else {
+    tanggal += `${splitTanggal[i]}/`;
+  }
 }
-console.log(tanggal)
+console.log(tanggal);
 
-function createSearchCard(flight){
-    const searchCard = `
+function createSearchCard(flight) {
+  const searchCard = `
     <div class="search-card">
       <div class="flight-information">
         <div id="flight-airline">${flight.airline}</div>
@@ -60,27 +64,23 @@ function createSearchCard(flight){
     </div>
   `;
 
-  wrapper.insertAdjacentHTML('beforeend', searchCard)
+  wrapper.insertAdjacentHTML('beforeend', searchCard);
 }
-let hasResult = false
+let hasResult = false;
 
-flightSchedules.forEach(flight =>  {
+flightSchedules.forEach((flight) => {
+  const kotaAsal = flight.originCity;
+  const kotaTujuan = flight.destinationCity;
+  const tanggalBerangkat = flight.date;
 
-    const kotaAsal = flight.originCity
-    const kotaTujuan = flight.destinationCity
-    const tanggalBerangkat = flight.date
+  if (asalParam === kotaAsal && tujuanParam === kotaTujuan && tanggal === tanggalBerangkat) {
+    createSearchCard(flight);
+    hasResult = true;
+  }
+});
 
-    if(asalParam === kotaAsal && tujuanParam === kotaTujuan && tanggal === tanggalBerangkat) {
-        
-        createSearchCard(flight)
-        hasResult = true
-        
-    } 
-    
-})
-
-if(!hasResult) {
-    wrapper.innerHTML = `
+if (!hasResult) {
+  wrapper.innerHTML = `
 <div class="no-results">
   <h2>Penerbangan tidak ditemukan</h2>
   <p>Coba cari dengan kriteria yang berbeda</p>
@@ -88,22 +88,14 @@ if(!hasResult) {
 `;
 }
 
-const listTicketColumn = document.getElementsByClassName('search-card')
+const listTicketColumn = document.getElementsByClassName('search-card');
 
-for(let i = 0; i < listTicketColumn.length; i++){
-    listTicketColumn[i].addEventListener('click', function(){
-        const flightNumberId = listTicketColumn[i].querySelector('#flight-number').textContent
-        console.log(flightNumberId)
-        window.location.href = `../ticket-confirm/index.html?flightNumber=${flightNumberId}`
-    })
+for (let i = 0; i < listTicketColumn.length; i++) {
+  listTicketColumn[i].addEventListener('click', function () {
+    const flightNumberId = listTicketColumn[i].querySelector('#flight-number').textContent;
+    console.log(flightNumberId);
+    window.location.href = `../ticket-confirm/index.html?flightNumber=${flightNumberId}`;
+  });
 }
 
 console.log(listTicketColumn);
-
-
-
-
-
-
-
-
