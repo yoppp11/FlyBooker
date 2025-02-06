@@ -1,34 +1,36 @@
 const username = document.getElementById('username');
-const password = document.getElementById('password');
+const email = document.getElementById('email');
 const loginBtn = document.getElementById('login-btn');
+
+localStorage.clear()
 
 function login() {
   const usernameValue = username.value;
-  const passwordValue = password.value;
+  const emailValue = email.value;
 
   let userObj = {
     uid: Math.floor(Math.random() * 12345678912341234),
     username: usernameValue,
-    password: passwordValue,
+    email: emailValue,
   };
 
   const usernameError = document.getElementById('username-error');
-  const passwordError = document.getElementById('password-error');
+  const emailError = document.getElementById('email-error');
 
   usernameError.style.display = 'none';
-  passwordError.style.display = 'none';
+  emailError.style.display = 'none';
 
   isValid = true;
 
   if (usernameValue === '') {
     usernameError.style.display = 'block';
     isValid = false;
-  } else if (passwordValue === '') {
-    passwordError.style.display = 'block';
+  } else if (emailValue === '') {
+    emailError.style.display = 'block';
     isValid = false;
-  } else if (usernameValue === '' && passwordValue === '') {
+  } else if (usernameValue === '' && emailValue === '') {
     usernameError.style.display = 'block';
-    passwordError.style.display = 'block';
+    emailError.style.display = 'block';
     isValid = false;
   }
 

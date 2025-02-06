@@ -81,7 +81,10 @@ flightSchedules.forEach(flight  => {
 })
 
 const btnConfirm = document.querySelector('#confirm-btn')
+const dialogOverlay = document.querySelector('#dialogOverlay')
+const closeBtn = document.querySelector('#closeBtn')
 const myTicketData = JSON.parse(localStorage.getItem('myTicket'))
+let timeoutId
 
 btnConfirm.addEventListener('click', function(){
     let listTicket = []
@@ -98,9 +101,22 @@ btnConfirm.addEventListener('click', function(){
         localStorage.setItem('myTicket', JSON.stringify(myTicketData))
 
     }
+
+    // dialogOverlay.style.display = 'flex'
+    
+    // timeoutId = setTimeout(() => {
+    //     dialogOverlay.style.display = 'none'
+    //     window.location.href = `../my-tickets/index.html?flightNumber=${flightNumberId}`
+    // }, 2000);
+    
     // localStorage.setItem('myTicket', )
-    window.location.href = `../my-tickets/index.html?flightNumber=${flightNumberId}`
 })
+
+// closeBtn.addEventListener('click', function(){
+//     dialogOverlay.style.display = 'none'
+//     clearTimeout(timeoutId)
+    
+// })
 
 if (!hasResult) {
     ticketConfirm.innerHTML = `

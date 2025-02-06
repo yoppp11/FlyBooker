@@ -96,11 +96,26 @@ div.container-input {
       font-size: 1rem;
       align-self: flex-start;
     }
-    input {
+    input, select {
+      /* padding: 0.4rem;
+      border-radius: 0.5rem;
+      border: 2px solid #4b164c;
+      min-width: 100%; */
       padding: 0.4rem;
       border-radius: 0.5rem;
       border: 2px solid #4b164c;
       min-width: 100%;
+      font-size: 1rem;
+      color: #4b164c;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    select{
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%234b164c" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 0.5rem center;
+      background-size: 1.5rem;
     }
     #btn-cari-jadwal {
       margin-top: 1rem;

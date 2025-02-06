@@ -1,4 +1,3 @@
-// const flightSchedules = require('../data-tiket.js')
 import { flightSchedules } from '../data-tiket.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,24 +17,29 @@ const wrapper = document.querySelector('.wrapper');
 const originCity = document.getElementById('origin-city');
 const destinationCity = document.getElementById('destination-city');
 const flightDate = document.getElementById('date-flight');
-let tiketId = '';
-
-originCity.textContent = asalParam;
-destinationCity.textContent = tujuanParam;
-flightDate.textContent = tanggalParam;
-
-const splitTanggal = tanggalParam.split('-');
-
 let tanggal = '';
 
-for (let i = splitTanggal.length - 1; i >= 0; i--) {
-  if (i === 0) {
-    tanggal += `${splitTanggal[i]}`;
-  } else {
-    tanggal += `${splitTanggal[i]}/`;
+if(tanggalParam){
+  
+  const splitTanggal = tanggalParam.split('-');
+  
+  
+  for (let i = splitTanggal.length - 1; i >= 0; i--) {
+    if (i === 0) {
+      tanggal += `${splitTanggal[i]}`;
+    } else {
+      tanggal += `${splitTanggal[i]}/`;
+    }
   }
+  console.log(tanggal)
+  
 }
-console.log(tanggal);
+
+
+flightDate.textContent = tanggalParam;
+originCity.textContent = asalParam;
+destinationCity.textContent = tujuanParam;
+
 
 function createSearchCard(flight) {
   const searchCard = `
@@ -72,11 +76,19 @@ flightSchedules.forEach((flight) => {
   const kotaAsal = flight.originCity;
   const kotaTujuan = flight.destinationCity;
   const tanggalBerangkat = flight.date;
+  if(tanggal){
+    if (asalParam === kotaAsal && tujuanParam === kotaTujuan && tanggal === tanggalBerangkat) {
+      createSearchCard(flight);
+      hasResult = true;
+    }
+  } else {
 
-  if (asalParam === kotaAsal && tujuanParam === kotaTujuan && tanggal === tanggalBerangkat) {
+    if(asalParam === kotaAsal && tujuanParam === kotaTujuan)
     createSearchCard(flight);
     hasResult = true;
   }
+  
+
 });
 
 if (!hasResult) {
@@ -98,4 +110,3 @@ for (let i = 0; i < listTicketColumn.length; i++) {
   });
 }
 
-console.log(listTicketColumn);
