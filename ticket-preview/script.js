@@ -1,17 +1,16 @@
-import { flightSchedules } from "../data-tiket.js"
+import { flightSchedules } from '../data-tiket.js';
 
+const urlParam = new URLSearchParams(window.location.search);
+const flightNumberId = urlParam.get('flightNumber');
+const dataUser = JSON.parse(localStorage.getItem('user'));
+const userName = dataUser.username;
+const uid = dataUser.uid;
+const ticketPreview = document.querySelector('#ticket-preview');
 
-const urlParam = new URLSearchParams(window.location.search)
-const flightNumberId = urlParam.get('flightNumber')
-const dataUser = JSON.parse(localStorage.getItem('user'))
-const userName = dataUser.username
-const uid = dataUser.uid
-const ticketPreview = document.querySelector('#ticket-preview')
+console.log(flightNumberId);
 
-console.log(flightNumberId)
-
-function createCardTicketConfirm(flight){
-    const tickerConfirm = `
+function createCardTicketConfirm(flight) {
+  const tickerConfirm = `
     <div class="section">
         <div class="flight-info-l">
           <h2 id="airline-name">${flight.airline}</h2>
@@ -65,13 +64,32 @@ function createCardTicketConfirm(flight){
       </div>
     `;
 
-    ticketPreview.insertAdjacentHTML('beforeend', tickerConfirm)
-
+  ticketPreview.insertAdjacentHTML('beforeend', tickerConfirm);
 }
 
-flightSchedules.forEach(flight => {
-    if(flight.flightNumber === flightNumberId){
-        
-        createCardTicketConfirm(flight)
-    }
-})
+flightSchedules.forEach((flight) => {
+  if (flight.flightNumber === flightNumberId) {
+    createCardTicketConfirm(flight);
+  }
+});
+
+const dialogCloseBtn = document.getElementById('close-dialog-btn');
+const confirmDialog = document.getElementById('confirm-dialog');
+
+function showHideDialog() {
+  confirmDialog.style.display = 'block';
+
+  setTimeout(() => {
+    confirmDialog.classList.add('fade-out');
+  }, 2000);
+
+  setTimeout(() => {
+    confirmDialog.style.display = 'none';
+  }, 3000);
+}
+
+showHideDialog();
+
+dialogCloseBtn.addEventListener('click', () => {
+  confirmDialog.style.display = 'none';
+});
