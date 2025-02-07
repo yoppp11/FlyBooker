@@ -2,6 +2,11 @@ import { flightSchedules } from "../data-tiket.js";
 
 const myListTicket = JSON.parse(localStorage.getItem('myTicket'))
 const myTicket = document.querySelector('#my-tickets')
+const userData = JSON.parse(localStorage.getItem('user'))
+const userName = userData.username
+const nama = document.querySelector('#user-name')
+
+if(userName) nama.innerHTML = userName
 
 function createListCard (flight){
     const card = `

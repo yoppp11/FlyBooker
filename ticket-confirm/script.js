@@ -99,14 +99,14 @@ btnConfirm.addEventListener('click', function(){
         objTicketData.flightNumber = flightNumberId
         myTicketData.push(objTicketData)
         localStorage.setItem('myTicket', JSON.stringify(myTicketData))
-
+        
     }
-
+    
+    window.location.href = `../my-tickets/index.html?flightNumber=${flightNumberId}`
     // dialogOverlay.style.display = 'flex'
     
     // timeoutId = setTimeout(() => {
     //     dialogOverlay.style.display = 'none'
-    //     window.location.href = `../my-tickets/index.html?flightNumber=${flightNumberId}`
     // }, 2000);
     
     // localStorage.setItem('myTicket', )

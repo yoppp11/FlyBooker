@@ -1,12 +1,12 @@
 import { flightSchedules } from '../data-tiket.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+
   let namaUser = document.getElementById('user-name');
   const userData = JSON.parse(localStorage.getItem('user'));
   const userName = userData.username;
 
   if (userData.username) namaUser.innerHTML = userName;
-});
+
 
 const urlParam = new URLSearchParams(window.location.search);
 
@@ -22,7 +22,6 @@ let tanggal = '';
 if(tanggalParam){
   
   const splitTanggal = tanggalParam.split('-');
-  
   
   for (let i = splitTanggal.length - 1; i >= 0; i--) {
     if (i === 0) {
