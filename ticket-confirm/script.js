@@ -84,30 +84,31 @@ const closeBtn = document.querySelector('#closeBtn');
 const myTicketData = JSON.parse(localStorage.getItem('myTicket'));
 let timeoutId;
 
-btnConfirm.addEventListener('click', function () {
-  let listTicket = [];
-  let objTicketData = {
-    flightNumber: '',
-  };
-  if (!myTicketData) {
-    objTicketData.flightNumber = flightNumberId;
-    listTicket.push(objTicketData);
-    localStorage.setItem('myTicket', JSON.stringify(listTicket));
-  } else {
-    objTicketData.flightNumber = flightNumberId;
-    myTicketData.push(objTicketData);
-    localStorage.setItem('myTicket', JSON.stringify(myTicketData));
-  }
+btnConfirm.addEventListener('click', function(){
+    let listTicket = []
+    let objTicketData = {
+        flightNumber: ''
+    }
+    if(!myTicketData){
+        objTicketData.flightNumber = flightNumberId
+        listTicket.push(objTicketData)
+        localStorage.setItem('myTicket', JSON.stringify(listTicket))
+    } else {
+        objTicketData.flightNumber = flightNumberId
+        myTicketData.push(objTicketData)
+        localStorage.setItem('myTicket', JSON.stringify(myTicketData))
+        
+    }
+    window.location.href = `../my-tickets/index.html?flightNumber=${flightNumberId}`
 
-  // dialogOverlay.style.display = 'flex'
-
-  // timeoutId = setTimeout(() => {
-  //     dialogOverlay.style.display = 'none'
-  //     window.location.href = `../my-tickets/index.html?flightNumber=${flightNumberId}`
-  // }, 2000);
-
-  // localStorage.setItem('myTicket', )
-});
+    // dialogOverlay.style.display = 'flex'
+    
+    // timeoutId = setTimeout(() => {
+    //     dialogOverlay.style.display = 'none'
+    // }, 2000);
+    
+    // localStorage.setItem('myTicket', )
+})
 
 // closeBtn.addEventListener('click', function(){
 //     dialogOverlay.style.display = 'none'
