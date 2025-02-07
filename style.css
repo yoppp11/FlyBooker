@@ -45,9 +45,9 @@ main {
         border: 2px solid #4b164c;
       }
       .error-message {
-          color: red;
-          font-size: 12px;
-          display: none;
+        color: red;
+        font-size: 12px;
+        display: none;
       }
     }
     button {
@@ -59,6 +59,7 @@ main {
       padding: 1rem;
       font-weight: 400;
       font-size: 0.8rem;
+      cursor: pointer;
     }
   }
 }
