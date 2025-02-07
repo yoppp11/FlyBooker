@@ -1,20 +1,20 @@
-import { flightSchedules } from "../data-tiket.js"
+import { flightSchedules } from '../data-tiket.js';
 
-const urlParam = new URLSearchParams(window.location.search)
-const flightNumberId = urlParam.get('flightNumber')
-const userData = JSON.parse(localStorage.getItem('user'))
-const uid = userData.uid
-const userName = userData.username
-const ticketConfirm = document.querySelector('.ticket-confirm')
-const nama = document.querySelector('#user-name')
+const urlParam = new URLSearchParams(window.location.search);
+const flightNumberId = urlParam.get('flightNumber');
+const userData = JSON.parse(localStorage.getItem('user'));
+const uid = userData.uid;
+const userName = userData.username;
+const ticketConfirm = document.querySelector('.ticket-confirm');
+const nama = document.querySelector('#user-name');
 
-if(userName) nama.innerHTML = userName
+if (userName) nama.innerHTML = userName;
 
-let hasResult = false
-let objFlight = {}
+let hasResult = false;
+let objFlight = {};
 
-function createCardTicketConfirm(flight){
-    const cardTicket = `
+function createCardTicketConfirm(flight) {
+  const cardTicket = `
             <div class="ticket-detail">
             <div class="left">
             <h2 id="airline">${flight.airline}</h2>
@@ -68,67 +68,58 @@ function createCardTicketConfirm(flight){
         </button>
     `;
 
-    ticketConfirm.insertAdjacentHTML('beforeend', cardTicket)
-
+  ticketConfirm.insertAdjacentHTML('beforeend', cardTicket);
 }
 
-flightSchedules.forEach(flight  => {
-    if(flight.flightNumber === flightNumberId){
-        
-        createCardTicketConfirm(flight)
-        hasResult = true
-    }
-})
+flightSchedules.forEach((flight) => {
+  if (flight.flightNumber === flightNumberId) {
+    createCardTicketConfirm(flight);
+    hasResult = true;
+  }
+});
 
-const btnConfirm = document.querySelector('#confirm-btn')
-const dialogOverlay = document.querySelector('#dialogOverlay')
-const closeBtn = document.querySelector('#closeBtn')
-const myTicketData = JSON.parse(localStorage.getItem('myTicket'))
-let timeoutId
+const btnConfirm = document.querySelector('#confirm-btn');
+const dialogOverlay = document.querySelector('#dialogOverlay');
+const closeBtn = document.querySelector('#closeBtn');
+const myTicketData = JSON.parse(localStorage.getItem('myTicket'));
+let timeoutId;
 
-btnConfirm.addEventListener('click', function(){
-    let listTicket = []
-    let objTicketData = {
-        flightNumber: ''
-    }
-    if(!myTicketData){
-        objTicketData.flightNumber = flightNumberId
-        listTicket.push(objTicketData)
-        localStorage.setItem('myTicket', JSON.stringify(listTicket))
-    } else {
-        objTicketData.flightNumber = flightNumberId
-        myTicketData.push(objTicketData)
-        localStorage.setItem('myTicket', JSON.stringify(myTicketData))
+btnConfirm.addEventListener('click', function () {
+  let listTicket = [];
+  let objTicketData = {
+    flightNumber: '',
+  };
+  if (!myTicketData) {
+    objTicketData.flightNumber = flightNumberId;
+    listTicket.push(objTicketData);
+    localStorage.setItem('myTicket', JSON.stringify(listTicket));
+  } else {
+    objTicketData.flightNumber = flightNumberId;
+    myTicketData.push(objTicketData);
+    localStorage.setItem('myTicket', JSON.stringify(myTicketData));
+  }
 
-    }
+  // dialogOverlay.style.display = 'flex'
 
-    // dialogOverlay.style.display = 'flex'
-    
-    // timeoutId = setTimeout(() => {
-    //     dialogOverlay.style.display = 'none'
-    //     window.location.href = `../my-tickets/index.html?flightNumber=${flightNumberId}`
-    // }, 2000);
-    
-    // localStorage.setItem('myTicket', )
-})
+  // timeoutId = setTimeout(() => {
+  //     dialogOverlay.style.display = 'none'
+  //     window.location.href = `../my-tickets/index.html?flightNumber=${flightNumberId}`
+  // }, 2000);
+
+  // localStorage.setItem('myTicket', )
+});
 
 // closeBtn.addEventListener('click', function(){
 //     dialogOverlay.style.display = 'none'
 //     clearTimeout(timeoutId)
-    
+
 // })
 
 if (!hasResult) {
-    ticketConfirm.innerHTML = `
+  ticketConfirm.innerHTML = `
 <div class="no-results">
   <h2>Penerbangan tidak ditemukan</h2>
   <p>Coba cari dengan kriteria yang berbeda</p>
 </div>
 `;
 }
-
-
-
-
-
-
